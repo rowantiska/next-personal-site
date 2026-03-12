@@ -1,5 +1,5 @@
 import React from 'react'
-import { Kranky } from '@next/font/google';
+import { Kranky } from 'next/font/google';
 
 const kranky = Kranky({
   subsets: ['latin'], 
@@ -8,9 +8,16 @@ const kranky = Kranky({
 
 export default function Header() {
   return (
-    <div className='w-[30rem]'>
+    <div className=''>
           <p className={`${kranky.className} text-9xl`}> Rowan</p>
-          <p className='mt-12 text-xl'><span className='text-5xl'>Hi!</span> I am Rowan and I am a current first year studying Data Science at Boston University. I have passion for design, espresso, fashion, and of course tech</p>
+          <div>
+            <div className='mt-4 p-4'>
+              <p className='text-xl'>Education:</p>
+                <p className='ml-4 mt-1'>Boston University '28 <span className='p-2'>|</span> data science + sustainable energy</p>
+            </div>
+
+          </div>
+
     </div>
   )
 }

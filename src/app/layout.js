@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { Joan } from '@next/font/google';
+import { Joan } from 'next/font/google';
 
 const joan = Joan({
   subsets: ['latin'], 
