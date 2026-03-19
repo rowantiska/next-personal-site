@@ -22,7 +22,7 @@ export default function Header() {
               <p className='text-xl'>Education:</p>
                 <p className='ml-4 mt-1'>Boston University '28 <span className='p-2'>|</span> data science + sustainable energy</p>
 
-                <button className='ml-4 mt-2 flex items-center' onClick={toggleDev}>Campus involvement 
+                <button className='ml-4 mt-2 mb-2 flex items-center' onClick={toggleDev}>Campus involvement 
                   <span className='ml-2 mt-0'>
                     <svg width="14" height="10" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 9H22M15 1L23 9L15 17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -32,7 +32,7 @@ export default function Header() {
 
             {dev && 
             <div className=''>
-            <ul className='mt-6 text-sm space-y-6 list-none'>
+            <ul className='mt-6 text-md space-y-6 list-none'>
               <li className='border border-1 rounded-sm p-3'>
                 <span className='text-lg'>Boston University Venture Capital Group</span>
                 <br></br>
