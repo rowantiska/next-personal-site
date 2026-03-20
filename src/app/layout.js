@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <body className={`${joan.className} p-10`}>
+    <body className={`${joan.className} p-4 md:p-10`}>
       {children}
     </body>
   </html>

@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <div className=''>
-          <p className={`${kranky.className} text-7xl md:text-9xl text-center`}>Rowan</p>
+          <p className={`${kranky.className} text-[96px] md:text-9xl text-center`}>Rowan</p>
           <div>
             <div className='border border-1 mt-10 p-4 rounded-sm'>
               <p className='text-xl'>Education:</p>
