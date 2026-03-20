@@ -31,10 +31,10 @@ export default function Home() {
             </span>
           </button>
            
-            {dev && <div className='mt-4 space-y-6'>
+            <div className={`mt-4 space-y-6 ${dev ? '' : 'hidden'}`}>
               <div className='border border-1 rounded-sm p-4'>
                 <div className='flex justify-center'>
-                    <Image src={BerriBasketPromo} alt='BerriBasket' width={350} className='rounded-sm object-cover' />
+                    <Image src={BerriBasketPromo} alt='BerriBasket' width={350} className='rounded-sm object-cover' priority />
                   </div>
                 <div className='flex justify-between items-start'>
                   <p className='text-2xl font-medium'>BerriBasket</p>
@@ -47,7 +47,7 @@ export default function Home() {
 
               <div className='border border-1 rounded-sm p-4'>
                 <div className='flex justify-center'>
-                    <Image src={BerriBasketPromo} alt='BerriBasket' width={350} className='rounded-sm object-cover' />
+                    <Image src={BerriBasketPromo} alt='BerriBasket' width={350} className='rounded-sm object-cover' priority />
                   </div>
                 <div className='flex justify-between items-start'>
                   <p className='text-2xl font-medium'>BerriBasket</p>
@@ -57,7 +57,6 @@ export default function Home() {
                 <a href='https://berribasket.com' className='mt-2 inline-block text-md text-gray-400 underline'>Visit site →</a>
               </div>
             </div>
-            }
 
         </div> 
       
