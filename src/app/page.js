@@ -6,6 +6,7 @@ import AsciiBackground from "@/comps/AsciiBackground";
 import Image from "next/image";
 import Link from "next/link";
 import BerriBasketPromo from "@/comps/static/berribasket/promo.png";
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
 
@@ -22,7 +23,7 @@ export default function Home() {
       <div className="min-w-0 w-[100%] md:w-[45%]">
           <Header/>
          <div className='border border-1 mt-4 p-4 rounded-sm'>
-         <p className='text-xl'>Experiance</p>
+         <p className='text-xl'>Experience</p>
           <button className='ml-4 mt-6 mb-2 flex items-center' onClick={toggleDev}>Projects 
             <span className='ml-2 mt-1'>
               <svg width="18" height="14" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +32,16 @@ export default function Home() {
             </span>
           </button>
            
-            <div className={`mt-4 space-y-6 ${dev ? '' : 'hidden'}`}>
+            <AnimatePresence>
+            {dev &&
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className='mt-4 space-y-6'
+              style={{ overflow: 'hidden' }}
+            >
               <div className='border border-1 rounded-sm p-4'>
                 <div className='flex justify-center'>
                     <Image src={BerriBasketPromo} alt='BerriBasket' width={350} className='rounded-sm object-cover' priority />
@@ -45,18 +55,9 @@ export default function Home() {
                 <Link href='/berribasket-gallery' className='mt-2 inline-block text-md text-gray-400 underline ml-4'>View asset gallery</Link>
               </div>
 
-              <div className='border border-1 rounded-sm p-4'>
-                <div className='flex justify-center'>
-                    <Image src={BerriBasketPromo} alt='BerriBasket' width={350} className='rounded-sm object-cover' priority />
-                  </div>
-                <div className='flex justify-between items-start'>
-                  <p className='text-2xl font-medium'>BerriBasket</p>
-                  <span className='text-md mt-2 text-gray-400'>Jan 2025 – Present</span>
-                </div>
-                <p className='mt-2 text-md text-gray-400'>A platform for local farmers, eat local.</p>
-                <a href='https://berribasket.com' className='mt-2 inline-block text-md text-gray-400 underline'>Visit site →</a>
-              </div>
-            </div>
+            </motion.div>
+            }
+            </AnimatePresence>
 
         </div> 
       

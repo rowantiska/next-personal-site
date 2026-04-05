@@ -27,9 +27,10 @@ export default function AsciiBackground() {
 
   useEffect(() => {
     function updateScale() {
+      const pad = 1.05; // overshoot slightly to eliminate edge gaps
       setScale({
-        x: window.innerWidth  / (COLS * CHAR_W),
-        y: window.innerHeight / (ROWS * LINE_H),
+        x: (window.innerWidth  / (COLS * CHAR_W)) * pad,
+        y: (window.innerHeight / (ROWS * LINE_H)) * pad,
       });
     }
     updateScale();
