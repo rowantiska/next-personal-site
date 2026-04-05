@@ -11,7 +11,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Home() {
 
   const [dev, setDev] =  React.useState(false)
-  
+  const [ready, setReady] = React.useState(false)
+
   const toggleDev = () => {
       setDev(!dev)
   }
@@ -19,8 +20,8 @@ export default function Home() {
 
   return (
     <div className="w-full flex justify-center">
-      <AsciiBackground />
-      <div className="min-w-0 w-[100%] md:w-[45%]">
+      <AsciiBackground onReady={() => setReady(true)} />
+      <div className={`min-w-0 w-[100%] md:w-[45%] transition-opacity duration-500 ${ready ? 'opacity-100' : 'opacity-0'}`}>
           <Header/>
          <div className='border border-1 mt-4 p-4 rounded-sm'>
          <p className='text-xl'>Experience</p>

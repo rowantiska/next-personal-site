@@ -7,7 +7,7 @@ const COLS = 120;
 const ROWS = 48;
 const LINE_H = BASE_FONT * 1.1;
 
-export default function AsciiBackground() {
+export default function AsciiBackground({ onReady }) {
   const [frames, setFrames] = useState([]);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [frameRate, setFrameRate] = useState(12);
@@ -22,6 +22,7 @@ export default function AsciiBackground() {
         setFrames(data.frames);
         setFrameRate(data.animation.frameRate || 12);
         setLooping(true);
+        onReady?.();
       });
   }, []);
 
