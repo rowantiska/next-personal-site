@@ -8,12 +8,18 @@ import Link from "next/link";
 import BerriBasketPromo from "@/comps/static/berribasket/promo.png";
 import feed_edit from "@/comps/static/feed_edit/1.png";
 import outfit_gen from "@/comps/static/outfit_gen/1.png";
+import usePreloadImages from "@/comps/usePreloadImages";
 import { motion, AnimatePresence } from 'framer-motion';
+
+const PROJECT_IMAGES = [BerriBasketPromo.src, feed_edit.src, outfit_gen.src];
 
 export default function Home() {
 
   const [dev, setDev] =  React.useState(false)
-  const [ready, setReady] = React.useState(false)
+  const [bgReady, setBgReady] = React.useState(false)
+
+  const imagesReady = usePreloadImages(PROJECT_IMAGES)
+  const ready = bgReady && imagesReady
 
   const toggleDev = () => {
       setDev(!dev)
@@ -22,7 +28,7 @@ export default function Home() {
 
   return (
     <div className="w-full flex justify-center">
-      <AsciiBackground onReady={() => setReady(true)} />
+      <AsciiBackground onReady={() => setBgReady(true)} />
       <div className={`min-w-0 w-[100%] md:w-[45%] transition-opacity duration-500 ${ready ? 'opacity-100' : 'opacity-0'}`}>
           <Header/>
          <div className='border border-1 mt-4 p-4 rounded-sm'>

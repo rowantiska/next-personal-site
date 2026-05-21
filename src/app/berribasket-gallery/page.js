@@ -1,7 +1,9 @@
 'use client';
+import React from "react";
 import AsciiBackground from "@/comps/AsciiBackground";
 import Link from "next/link";
 import Image from "next/image";
+import usePreloadImages from "@/comps/usePreloadImages";
 import promo from "@/comps/static/berribasket/promo.png";
 import header from "@/comps/static/berribasket/header.png";
 import laptop from "@/comps/static/berribasket/laptop.png";
@@ -9,11 +11,17 @@ import logo from "@/comps/static/berribasket/logo.png";
 import cac from "@/comps/static/berribasket/cac.jpg";
 import farm from "@/comps/static/berribasket/farm.png";
 
+const GALLERY_IMAGES = [promo.src, header.src, laptop.src, logo.src, cac.src, farm.src];
+
 export default function BerriBasketGallery() {
+  const [bgReady, setBgReady] = React.useState(false);
+  const imagesReady = usePreloadImages(GALLERY_IMAGES);
+  const ready = bgReady && imagesReady;
+
   return (
     <div className="w-full flex justify-center">
-      <AsciiBackground />
-      <div className="min-w-0 w-[100%] md:w-[75%] mb-10">
+      <AsciiBackground onReady={() => setBgReady(true)} />
+      <div className={`min-w-0 w-[100%] md:w-[75%] mb-10 transition-opacity duration-500 ${ready ? 'opacity-100' : 'opacity-0'}`}>
         <div className="border border-1 mt-4 p-4 rounded-sm">
           <div className="flex items-center justify-between mb-6">
             <p className="text-xl">BerriBasket — Asset Gallery</p>
