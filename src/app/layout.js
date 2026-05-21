@@ -9,7 +9,7 @@ const joan = Joan({
 
 
 export const metadata = {
-  title: "rowan.bio",
+  title: "Rowan Tiska",
   description: "",
 };
 
